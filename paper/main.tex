@@ -6,7 +6,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{conjecture}{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
@@ -20,7 +20,7 @@
 \title[FA-1f out of equilibrium at high density]{Relaxation of the one-dimensional Fredrickson--Andersen model from
 a single infection at high density}
 \author{Yitzchak Shmalo}
-\address{Yitzchak Shmalo, Tel Aviv University and Heights Labs}
+\address{Einstein Institute of Mathematics, The Hebrew University of Jerusalem, Jerusalem, Israel}
 \email{yspennstate@gmail.com}
 \date{November 2026}
 \subjclass[2020]{60K35, 82C22}
@@ -59,7 +59,7 @@ $x\in\Z$ let
 \begin{equation}\label{eq:dist}
 D_x(\eta)=\min\{|x-y|:\eta_y=0\},\qquad R(\eta)=D_0(\eta),
 \end{equation}
-with $\min\emptyset=\infty$. The following two conjectures are posed in the survey of Martinelli, Shapira and
+with $\min\emptyset=\infty$. The following two conjectures are stated, in equivalent form, in the survey of Martinelli, Shapira and
 Toninelli \cite[Section~1.1, Conjectures~1 and~2]{MST25}; the first is also Conjecture~2.11 in \cite{Mar26}.
 
 \begin{conjecture}\label{conj:convergence}
@@ -152,7 +152,7 @@ Let $\eta(\cdot)$ and $\zeta(\cdot)$ be two processes built from the same clocks
 $I$ follow the update rule of FA-1f, with arbitrary (possibly different) evolution outside $I$, adapted to the
 clocks and spins, and with $\eta_x(0)=\zeta_x(0)$ for $x\in I$. Then for $u\ge0$,
 \begin{equation}\label{eq:fp}
-\PP\bigl(\eta_y(\tau)\ne\zeta_y(\tau)\ \text{for some }y\in S,\ \tau\le u\bigr)\le|S|\,\frac{(2u)^d}{d!}.
+\PP\bigl(\eta_y(\tau)\ne\zeta_y(\tau)\ \text{for some }y\in S\text{ and some time }\tau\le u\bigr)\le|S|\,\frac{(2u)^d}{d!}.
 \end{equation}
 If $d\ge8eu$, the right-hand side is at most $|S|\,4^{-d}$.
 \end{lemma}
@@ -248,8 +248,8 @@ $N\to\infty$. Therefore
 and letting $M\to\infty$ gives \eqref{eq:drift} by monotone convergence.
 \end{proof}
 
-The bound \eqref{eq:lyapunov} is the infinite-volume form of \cite[Proposition~4.1]{BCMRT13}. It is attained:
-equality holds when $x$ has a single nearest infection $y$, the site $y$ has an infected neighbour on the side away
+The bound \eqref{eq:lyapunov} is the infinite-volume form of \cite[Proposition~4.1]{BCMRT13}. For $D_x\ge1$ the estimate
+$Lg\le-\lambda g$ is sharp: equality holds when $x$ has a single nearest infection $y$, the site $y$ has an infected neighbour on the side away
 from $x$, and no other transition changes $D_x$.
 
 \section{Proof of Theorem~\ref{thm:main} and Corollary~\ref{cor:conjectures}}\label{sec:proof}
@@ -350,7 +350,7 @@ $X_-$ follows by reflection.
 
 The diameter $X_+-X_-$ grows linearly for every $q\in(0,1)$ by \cite[Theorem~6.2]{MST25}. For $q>1/2$,
 Proposition~\ref{prop:fronts} shows in addition that each extreme infection moves away from the origin at a linear
-speed, and Corollary~\ref{cor:conjectures} shows that behind the two extreme infections the process is locally at
+speed, and Corollary~\ref{cor:conjectures} shows that in every fixed finite window the law of the process converges to
 equilibrium.
 
 \subsection{Initial laws close to equilibrium, every q}
@@ -391,7 +391,7 @@ small.
 \end{example}
 
 \begin{remark}\label{rem:half}
-Lemma~\ref{lem:drift} needs $\theta<q/p$, which is possible only for $q>1/2$. For $q\le1/2$ and $\theta>1$, take the
+Lemma~\ref{lem:drift} needs $\theta<q/p$, which is possible only for $q>1/2$. For $q\le1/2$, $\theta>1$ and $d\ge1$, take the
 configuration whose infections are exactly the sites $d$ and $d+1$; for $g=\theta^{D_0}$ it has
 $Lg=\theta^d(\theta-1)(p-q/\theta)\ge0$, so no bound of the form \eqref{eq:lyapunov} with $\lambda>0$ holds for
 all large $d$. This is a statement about one
@@ -426,12 +426,13 @@ The author directed the work and is responsible for the content of the paper and
 dissemination.
 
 \section*{Code availability}
-A script that checks the generator inequality \eqref{eq:lyapunov} exactly on every configuration of windows of up to
-twelve sites with frozen infected exterior, for several values of $q>1/2$, and that simulates the process from a single
+A script that checks the generator inequality \eqref{eq:lyapunov}, in floating-point arithmetic, on every configuration of
+windows of up to twelve sites with frozen infected exterior, for several values of $q>1/2$, and that simulates the process from a single
 infection, is in the repository
-\begin{center}\url{https://github.com/yspennstate/fa1f-relaxation-high-density}.\end{center}
+\begin{center}\url{https://github.com/yspennstate/fa1f-relaxation-high-density/tree/v1.1}.\end{center}
 In the simulations ($q=0.6$ and $q=0.75$, $300$ paths each) the probabilities that the origin is infected and that
-the sites $-1,0,1$ are all healthy are within two standard errors of $q$ and $p^3$ at all recorded times.
+the sites $-1,0,1$ are all healthy are within two standard errors of $q$ and $p^3$ at $30$ of the $32$ recorded points; the two
+exceptions, the origin at $q=0.6$, $t=45$ and at $q=0.75$, $t=70$, are $2.3$ standard errors away.
 
 \appendix
 \section{Notation}\label{app:notation}

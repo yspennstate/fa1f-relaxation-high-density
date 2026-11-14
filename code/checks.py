@@ -2,7 +2,7 @@
 
 1. drift: the generator inequality of Lemma 3.1,
        L theta^{D_x} <= -lambda theta^{D_x} + b,
-   checked exactly on every configuration of a window of n sites whose exterior is frozen infected
+   checked in floating point on every configuration of a window of n sites whose exterior is frozen infected
    (the finite-volume chains used in the proof of the lemma), for several q > 1/2.
 2. seed: exact continuous-time simulation from a single infection at the origin; the estimated
    P(eta_0(t) = 0) and P(eta_{-1} = eta_0 = eta_1 = 1) are compared with their equilibrium values q and p^3.

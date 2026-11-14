@@ -21,7 +21,7 @@ Schonmann and Toninelli with explicit constants. Both conjectures remain open fo
 ## Contents
 
 - `paper/main.tex`, `paper/main.pdf`: the paper.
-- `code/checks.py`: an exact check of the generator inequality of Lemma 3.1 on every configuration of
+- `code/checks.py`: a check, in floating-point arithmetic, of the generator inequality of Lemma 3.1 on every configuration of
   windows of up to twelve sites with frozen infected exterior, and an exact continuous-time simulation from a
   single infection. Pure Python 3, no dependencies. Run `python code/checks.py` from the repository root
   (under a minute).
